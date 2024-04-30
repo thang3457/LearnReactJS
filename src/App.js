@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+import Content from "./Contents";
+import Exercise from "./Exercise";
+import MyApp from './MyApp'
 
 function App() {
-  return (
+  const [show, setshow] = useState(false)
+  const [showExercise, setShowExercise] = useState(false)
+  const [showMyApp, setShowMyApp] = useState(false)
+
+   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => setshow(!show)}>Tong le</button>
+      {show && <Content />}
+      
+      <button onClick={() => setShowExercise(!showExercise)}>Exercise</button>
+      {showExercise && < Exercise/>}
+
+      <button onClick={() => setShowMyApp(!showMyApp)}>MyApp</button>
+      {showMyApp && < MyApp/>}
     </div>
-  );
+  )
 }
 
 export default App;
